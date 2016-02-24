@@ -1,12 +1,12 @@
 meta:
-  title: ""
-  description: ""
+  title: "Wiki Battle!"
+  description: "In what language are editors the most excited on Wikipedia right now?"
   facebook_image: ""  # /img/facebook.png
   twitter_image: ""  # /img/twitter.png
   image: ""  # /img/share.png
-  twitter_handle: ""  # @minimill_co
-  domain: ""  # minimill.co
-  url: ""  # https://minimill.co
+  twitter_handle: "@danrschlosser"
+  domain: "battle.schlosser.io"
+  url: "http://battle.schlosser.io/"
   google_analytics_id: "" # UA-66637918-1
 langs:
   - lang: en
