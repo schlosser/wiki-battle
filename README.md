@@ -1,24 +1,48 @@
-Wiki Battle
-========================================
+Wiki Battle! - [battle.schlosser.io](http://battle.schlosser.io)
+================================================================
 
-Wiki Battle is the best way to build static sites fast.  With one command, build a static page using [Gulp][gulp], [ES6][es6], [Handlebars.js][handlebars], and [SCSS][scss].
+Wiki Battle! answers a question we've all been wondering, even if we didn't know it yet: _In what language are Wikipedia contributors getting fired up right now?_
 
-## Features
+## About
 
-- Install the project in just three commands (see "Developing" below).
-- Use [Handlebars.js][handlebars] to keep our HTML organized into templates and partials.
-- Use [SCSS][scss] to keep our CSS organized into logical components.
-- Use [Autoprefixer][autoprefixer] to automatically insert browser prefixes where necessary to handle cross browser compatibility.
-- Use [Browsersync][browsersync] to automatically launch a development version of our website, reload the page whenever we change the HTML, and inject changes to CSS, JavaScript, and images with needing to reload.
-- Use [HTML Minifier][htmlmin], [CSSNano][cssnano], [UglifyJS][uglifyjs], and [ImageMin][imagemin] to compress and optimize our HTML, CSS, JavaScript, and images, respectively.
-- Use [SCSS-Lint][scss-lint], [JSHint][jshint], and [JSCS][jscs] to perform [linting][linting] and style checking on our SCSS and JavaScript files.
-- Use [Bable] to allow us to write JavaScript with new [ES6][es6] features. 
+Inspired by [Listen to Wikipedia, by Hatnote][hatnote], Wiki Battle! uses a live stream of Wikipedia edits to compare how fired up Wikipedia contributors are getting in each language.
 
-All with one command from the terminal:
+Head over to [battle.schlosser.io](http://battle.schlosser.io), choose two languages, and let the battle it out.  Wiki Battle! will let you know in which language contributors are getting more fired up.
 
+### Getting the data.
+
+Hatnote's Listen to Wikipedia is [open source][hatnote-github], and this source [includes a list of 36 websocket URLs][hatnote-github-js] that publish new Wikipedia edits in different languages, all in JSON format.
+
+For this project, I'm not acutally using any of the data itself, rather the message and the time it was received is of interest to me.
+
+### Determining a winner
+
+When comparing two languages, I was interested in which language community was more abnormally active.  To do this, I couldn't just compare the frequency of edits: some languages (e.g. English) have many more edits happening per day than others (e.g. Polish), and so this wouldn't be a compelling comparison.  Instead, I bucket edits into second-long buckets, and count the number of edits per second. Then, I compute a moving average and standard deviation over all data recorded so far of how many edits are happening per second in that language. For each new bucket size data point, I compute a "score" of that data point, which is the deviation from the average:
+
+```js
+// From: src/js/battle.js:Contender.prototype.computeStatistics
+var score = (datasetStdDev === 0) ? 0 : (newCount - datasetAverage) / datasetStdDev;
 ```
-gulp serve
-```
+
+If the standard deviation is zero, then the score is zero, otherwise, it's the differnce between the new count (bucket size) and the dataset average divided by the standard deviation.  If a point is 2 standard deviations above the mean, then the score is 2.
+
+Then, I compute a moving average of the latest 20 (or fewer to start) scores, and call that the total score.  The total score is meant to represent how active the contributor community is in the given language compared to normal. 
+
+The total score of each language is compared, the language with the larger total score is said to be the winner.  The winner is recomputed every second, with every new bucket size data point.
+
+### Possible flaws
+
+There are two flaws with this approach:  First, many languages have 0 edits per second, for many seconds in a row.  This can make comparisons less interesting.  Negative total scores are possible, so comparing an active community with an extremely inactive community is less compelling.
+
+Second, no historical data is being used.  Every time the user selects to languages, a new battle is started and new data is recorded.  The entire application is written in JavaScript, so there is no server to store data across page reloads.
+
+# Code
+
+With one command, build a static page using Websockets, [Gulp][gulp], [Handlebars.js][handlebars], and [SCSS][scss].
+
+## Files of interest
+
+Much of the code in this repository is for styling and animating the webapp.  The interesting computation and state management happens in `src/js/battle.js`, and all UI interactions being managed by `src/js/app.js`.  All other files are either HTML template (written in the `.hbs` [Handlebars.js][handlebars] format) or stylesheets.
 
 ## Setup
 
@@ -89,6 +113,9 @@ For use by the Minimill team only.  Deploys to `work.minimill.co/TITLE/`, but wo
 [cssmin]: https://github.com/ben-eb/cssnano
 [es6]: https://github.com/lukehoban/es6features
 [gulp]: http://gulpjs.com/
+[hatnote]: http://listen.hatnote.com/
+[hatnote-github]: https://github.com/hatnote/listen-to-wikipedia/
+[hatnote-github-js]: https://github.com/hatnote/listen-to-wikipedia/blob/master/static/index.html#L86
 [handlebars]: http://handlebarsjs.com/
 [htmlmin]: https://github.com/kangax/html-minifier
 [imagemin]: https://github.com/imagemin/imagemin
