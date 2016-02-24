@@ -1,5 +1,18 @@
 {{#extend "base"}}
 {{#content "main" mode="prepend"}}
-Hello World!
+<div class="info">
+    <p><a href="https://schlosser.io">Made by Dan</a></p>
+    <div class="center">
+        <h1><a href="/" class="h1">WIKI BATTLE!</a></h1>
+        <p>(Winners show the most improvement in edits per second)</p>
+    </div>
+    <p><a href="https://github.com/danrschlosser/wiki-battle">GitHub</a></p>
+</div>
+<div class="contenders">
+    {{> contender side="left"}}
+    {{> contender side="right"}}
+</div>
+<script type="text/javascript" src="/js/battle.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
 {{/content}}
 {{/extend}}

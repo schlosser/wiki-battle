@@ -1,0 +1,29 @@
+<div class="contender {{side}} {{class}}">
+    <div class="countries-picker">
+        <h3 class="select">Select a Language:</h3>
+        <ul class="countries">
+            {{#each langs}}
+            <li class="country-option">
+                <a href="#{{ this.name }}"
+                    class="select-country"
+                    data-country-code="{{this.country_code}}"
+                    data-lang="{{ this.lang }}"
+                    data-name="{{ this.name }}"
+                    data-side="{{ ../side }}"
+                    data-ws-url="{{this.url}}">
+                    <div class="flag-icon flag-icon-{{ this.country_code }}"></div>
+                    <h3 class="flag-label">{{ this.name }}</h3>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="cover">
+        <a href="#close"
+            class="deselect-country"
+            data-side="{{side}}"> </a>
+        <div class="counts"></div>
+    </div>
+    <div class="winning-banner"><h2>Winner!</h2></div>
+</div>
+

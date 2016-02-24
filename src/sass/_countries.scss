@@ -1,0 +1,56 @@
+.countries-picker {
+  margin: 0 auto;
+  padding: 4rem 0 2rem;
+  width: 80%;
+}
+
+.countries {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.select {
+  opacity: 1;
+  padding-right: 0.25rem;
+  position: absolute;
+  right: 50%;
+  top: 3rem;
+  transition: 0.4s ease opacity;
+}
+
+$flag-spacing: 0.5rem;
+
+.country-option {
+  box-sizing: border-box;
+  height: (2.25rem + 2 * $flag-spacing);
+  padding: $flag-spacing;
+  width: (3rem + 2 * $flag-spacing);
+
+  .flag-icon {
+    height: 100%;
+    width: 100%;
+
+    &:hover + .flag-label {
+      opacity: 1;
+    }
+  }
+
+  .flag-label {
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    top: 3rem;
+    transition: 0.2s ease all;
+    z-index: 100;
+  }
+
+  .select-country.selected .flag-label {
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.contender.active .select {
+  opacity: 0;
+}

@@ -1,0 +1,7 @@
+@keyframes slide-down {
+  0% { transform: translate3d(0, -200%, 0); }
+  50% { transform: translate3d(0, -200%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+$a-slide-down: slide-down 0.2s ease;

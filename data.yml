@@ -8,3 +8,144 @@ meta:
   domain: ""  # minimill.co
   url: ""  # https://minimill.co
   google_analytics_id: "" # UA-66637918-1
+langs:
+  - lang: en
+    country_code: us
+    name: English
+    url: "ws://wikimon.hatnote.com:9000"
+  - lang: de
+    country_code: de
+    name: German
+    url: "ws://wikimon.hatnote.com:9010"
+  - lang: ru
+    country_code: ru
+    name: Russian
+    url: "ws://wikimon.hatnote.com:9020"
+  - lang: uk
+    country_code: ua
+    name: Ukrainian
+    url: "ws://wikimon.hatnote.com:9310"
+  - lang: ja
+    country_code: jp
+    name: Japanese
+    url: "ws://wikimon.hatnote.com:9030"
+  - lang: es
+    country_code: es
+    name: Spanish
+    url: "ws://wikimon.hatnote.com:9040"
+  - lang: fr
+    country_code: fr
+    name: French
+    url: "ws://wikimon.hatnote.com:9050"
+  - lang: nl
+    country_code: nl
+    name: Dutch
+    url: "ws://wikimon.hatnote.com:9060"
+  - lang: it
+    country_code: it
+    name: Italian
+    url: "ws://wikimon.hatnote.com:9070"
+  - lang: sv
+    country_code: sv
+    name: Swedish
+    url: "ws://wikimon.hatnote.com:9080"
+  - lang: ar
+    country_code: eg
+    name: Arabic
+    url: "ws://wikimon.hatnote.com:9090"
+  - lang: fa
+    country_code: ir
+    name: Farsi
+    url: "ws://wikimon.hatnote.com:9210"
+  - lang: he
+    country_code: il
+    name: Hebrew
+    url: "ws://wikimon.hatnote.com:9230"
+  - lang: id
+    country_code: id
+    name: Indonesian
+    url: "ws://wikimon.hatnote.com:9100"
+  - lang: zh
+    country_code: cn
+    name: Chinese
+    url: "ws://wikimon.hatnote.com:9240"
+  - lang: as
+    country_code: in
+    name: Assamese
+    url: "ws://wikimon.hatnote.com:9150"
+  - lang: hi
+    country_code: in
+    name: Hindi
+    url: "ws://wikimon.hatnote.com:9140"
+  - lang: bn
+    country_code: in
+    name: Bengali
+    url: "ws://wikimon.hatnote.com:9160"
+  - lang: pa
+    country_code: in
+    name: Punjabi
+    url: "ws://wikimon.hatnote.com:9120"
+  - lang: te
+    country_code: in
+    name: Telugu
+    url: "ws://wikimon.hatnote.com:9165"
+  - lang: ta
+    country_code: in
+    name: Tamil
+    url: "ws://wikimon.hatnote.com:9110"
+  - lang: ml
+    country_code: in
+    name: Malayalam
+    url: "ws://wikimon.hatnote.com:9250"
+  - lang: mr
+    country_code: in
+    name: Western
+    url: "ws://wikimon.hatnote.com:9130"
+  - lang: kn
+    country_code: in
+    name: Kannada
+    url: "ws://wikimon.hatnote.com:9170"
+  - lang: or
+    country_code: in
+    name: Oriya
+    url: "ws://wikimon.hatnote.com:9180"
+  - lang: sa
+    country_code: in
+    name: Sanskrit
+    url: "ws://wikimon.hatnote.com:9190"
+  - lang: gu
+    country_code: in
+    name: Gujarati
+    url: "ws://wikimon.hatnote.com:9200"
+  - lang: pl
+    country_code: pl
+    name: Polish
+    url: "ws://wikimon.hatnote.com:9260"
+  - lang: mk
+    country_code: mk
+    name: Macedonian
+    url: "ws://wikimon.hatnote.com:9270"
+  - lang: be
+    country_code: be
+    name: Belarusian
+    url: "ws://wikimon.hatnote.com:9280"
+  - lang: sr
+    country_code: sr
+    name: Serbian
+    url: "ws://wikimon.hatnote.com:9290"
+  - lang: bg
+    country_code: bg
+    name: Bulgarian
+    url: "ws://wikimon.hatnote.com:9300"
+  - lang: hu
+    country_code: hu
+    name: Hungarian
+    url: "ws://wikimon.hatnote.com:9320"
+  - lang: fi
+    country_code: fi
+    name: Finnish
+    url: "ws://wikimon.hatnote.com:9330"
+  - lang: no
+    country_code: no
+    name: Norwegian
+    url: "ws://wikimon.hatnote.com:9340"

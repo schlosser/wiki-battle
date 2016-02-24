@@ -66,7 +66,7 @@ gulp.task('sass', ['sass:lint', 'sass:build']);
 gulp.task('js:build', function() {
   return gulp.src('src/js/**/*.js')
     .pipe(plumber())
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('dist/js'));
 });
 

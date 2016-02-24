@@ -1,0 +1,132 @@
+.contenders {
+  @include clearfix;
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 4.5rem;
+  width: 100%;
+}
+
+.contender {
+  box-sizing: border-box;
+  display: inline-block;
+  float: left;
+  min-height: 100%;
+  overflow: hidden;
+  padding: 1rem;
+  position: relative;
+  width: 50%;
+
+  &.left {
+    border-right: 1px solid $black;
+  }
+
+  &.active {
+    .cover {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .deselect-country {
+      animation: $a-slide-down;
+    }
+  }
+
+  &.winning {
+    .winning-banner {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .winning-banner {
+    background-color: rgba($white, 0.8);
+    bottom: 0;
+    left: 20%;
+    position: absolute;
+    right: 20%;
+    text-align: center;
+    transform: translate3d(0, 100%, 0);
+    transition: 0.3s ease transform;
+    z-index: 500;
+  }
+
+  .cover {
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.5s ease opacity;
+    width: 100%;
+    z-index: 10;
+
+    &:before {
+      background-color: rgba($white, 0.8);
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  .counts {
+    color: $black;
+    height: 3rem;
+    margin: 0 auto;
+    padding: 6rem 0 2rem;
+    position: relative;
+    text-align: center;
+    width: 80%;
+    z-index: 20;
+  }
+}
+
+.deselect-country {
+  content: ' ';
+  display: block;
+  height: 3rem;
+  left: 1rem;
+  position: absolute;
+  top: 1rem;
+  width: 3rem;
+  z-index: 20;
+
+  &:before, &:after {
+    background-color: $black;
+    content: ' ';
+    display: block;
+    height: 2px;
+    left: 0.25rem;
+    margin-top: -1px;
+    position: absolute;
+    top: 1.5rem;
+    transform-origin: 50% 50%;
+    width: 2.5rem;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+
+@media screen and (max-width: $tablet-portrait-max) {
+  .contender {
+    display: block;
+    float: none;
+    min-height: 50%;
+    width: 100%;
+
+    &.left {
+      border-bottom: 1px solid $black;
+      border-right: 0;
+    }
+  }
+}

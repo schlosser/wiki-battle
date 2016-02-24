@@ -1,7 +1,7 @@
-Project Template
+Wiki Battle
 ========================================
 
-The [Minimill](https://minimill.co) project template is the best way to build static sites fast.  With one command, build a static page using [Gulp][gulp], [ES6][es6], [Handlebars.js][handlebars], and [SCSS][scss].
+Wiki Battle is the best way to build static sites fast.  With one command, build a static page using [Gulp][gulp], [ES6][es6], [Handlebars.js][handlebars], and [SCSS][scss].
 
 ## Features
 
