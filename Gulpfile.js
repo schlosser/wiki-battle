@@ -160,9 +160,9 @@ gulp.task('build:optimized', function(cb) {
 
 gulp.task('deploy', ['build:optimized'], function() {
   gulp.src('')
-    .pipe(shell('scp -r dist/* dan@danrs.ch:/srv/wiki-battle/public_html/'))
+    .pipe(shell('scp -r dist/* dan:/srv/battle.schlosser.io/public_html/'))
     .on('finish', function() {
-      process.stdout.write('Deployed to battle.schlosser.io/');
+      process.stdout.write('Deployed to battle.schlosser.io/\n');
     });
 });
 
